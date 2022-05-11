@@ -1,4 +1,4 @@
-This Dockerfile runs [DITTO](https://vldb.org/pvldb/vol14/p50-li.pdf)
+This Dockerfile runs [DITTO](https://vldb.org/pvldb/vol14/p50-li.pdf).
 
 To do so, after building the Docker image with:
 
