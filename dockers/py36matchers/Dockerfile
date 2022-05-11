@@ -16,7 +16,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Linu
     echo "conda activate base" >> ~/.bashrc
 
 ENV PATH /opt/conda/bin:$PATH
-ENV LD_LIBRARY_PATH /usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH /usr/local/cuda-11.6/lib64:/usr/local/cuda-11.6/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
 WORKDIR /methods
 RUN git clone https://github.com/chu-data-lab/zeroer.git
