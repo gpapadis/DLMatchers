@@ -2,7 +2,7 @@ This Dockerfile runs [DITTO](https://vldb.org/pvldb/vol14/p50-li.pdf).
 
 To do so, build the Docker image with:
 
-`sudo docker build -t py3Xmatchers py37matchers`
+`sudo docker build -t py37matchers py37matchers`
 
 and then log into the Docker container with:
 
