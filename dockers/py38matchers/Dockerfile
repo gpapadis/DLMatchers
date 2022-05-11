@@ -34,11 +34,6 @@ RUN pip install -r requirements.txt
 WORKDIR /methods/EntityMatcher/embedding/
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
 
-# get GNEM
-WORKDIR /methods
-RUN git clone https://github.com/ChenRunjin/GNEM.git
-RUN pip install pytorch_transformers
-
 # install AutoML4EM
 WORKDIR /methods
 RUN git clone https://github.com/softlab-unimore/automl-for-em.git
