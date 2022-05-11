@@ -6,7 +6,7 @@ To do so, build the Docker image with:
 
 and then log into the Docker container with:
 
-`sudo docker run -it --entrypoint=/bin/bash --gpus all py36matchers`
+`sudo docker run -it --entrypoint=/bin/bash py36matchers`
 
 and activate the corresponding conda environment with:
 
