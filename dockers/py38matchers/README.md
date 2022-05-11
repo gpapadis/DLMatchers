@@ -3,9 +3,9 @@ This Dockerfile runs the following deep learning-based matchers:
 * [EMTransformer](https://digitalcollection.zhaw.ch/bitstream/11475/19637/1/Entity_Machting_with_Transformers_edbt_2020__Camera_Ready.pdf)
 * [DeepMatcher](https://chu-data-lab.github.io/CS8803Fall2018/CS8803-Fall2018-DML-Papers/deepmatcher-space-exploration.pdf)
 * [HierMatcher](https://www.ijcai.org/Proceedings/2020/0507.pdf)
-* [AutoML4EM](https://iris.unimore.it/retrieve/handle/11380/1247077/355324/p260%20%285%29.pdf)
+* [AutoML4EM](https://openproceedings.org/2021/conf/edbt/p260.pdf)
 
-It also runs the machine learning-based matcher [Magellan]().
+It also runs the machine learning-based matcher [Magellan](http://www.vldb.org/pvldb/vol9/p1197-pkonda.pdf).
 
 To do so, build the Docker image with:
 
@@ -26,3 +26,4 @@ The source-code for the rest of the methods is available here:
 * [DeepMatcher](https://github.com/anhaidgroup/deepmatcher)
 * [HierMatcher](https://github.com/casnlu/EntityMatcher)
 * [AutoML4EM](https://github.com/softlab-unimore/automl-for-em)
+* [Magellan](https://github.com/anhaidgroup/py_entitymatching)
