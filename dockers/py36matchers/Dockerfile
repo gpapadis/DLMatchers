@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:11.6.0-devel-ubuntu18.04
 
 ENV PATH /opt/conda/bin:$PATH
 
@@ -22,4 +22,3 @@ WORKDIR /methods
 RUN git clone https://github.com/chu-data-lab/zeroer.git
 WORKDIR /methods/zeroer
 RUN conda env create -f environment.yml
-
