@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.0-devel-ubuntu18.04-rc
+FROM nvidia/cuda:11.6.0-devel-ubuntu18.04
 
 ENV PATH /opt/conda/bin:$PATH
 
@@ -19,20 +19,14 @@ ENV PATH /opt/conda/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
 RUN conda create -n p377 python=3.7.7 -y
-SHELL ["conda", "run", "-n", "p377", "/bin/bash", "-c"] 
-RUN conda install pytorch=1.9.0 cudatoolkit=11.1 nvidia-apex -c pytorch -c conda-forge -y
-RUN python -c "import torch; print(torch.__version__)"
-RUN python -c 'import torch; print(torch.cuda.is_available())'
-RUN python -c 'import torch; print(torch.version.cuda)'
+SHELL ["conda", "run", "-n", "p377", "/bin/bash", "-c"]
+RUN conda install pytorch=1.8.0 cudatoolkit=11.1 nvidia-apex -c pytorch -c conda-forge -y
 
-#WORKDIR /methods
-#RUN git clone https://github.com/megagonlabs/ditto.git
-#WORKDIR /methods/ditto
-#RUN sed -i '8d' requirements.txt 
-
-conda install pytorch=1.9.0+cu111 -c pytorch 
-
-#RUN pip install -r requirements.txt
-#RUN python -m spacy download en_core_web_lg
-#RUN python -c "import nltk; nltk.download('stopwords')"
-#RUN pip install tensorboardX
+WORKDIR /methods
+RUN git clone https://github.com/megagonlabs/ditto.git
+WORKDIR /methods/ditto
+RUN sed -i '8d' requirements.txt
+RUN pip install -r requirements.txt
+RUN python -m spacy download en_core_web_lg
+RUN pip install tensorboardX nltk
+RUN python -m nltk.downloader stopwords
