@@ -1,5 +1,4 @@
 This Dockerfile runs the following matching algorithms:
-* [ZeroER](https://chu-data-lab.github.io/downloads/ZeroER-SIGMOD2020.pdf)
 * [DITTO](https://vldb.org/pvldb/vol14/p50-li.pdf)
 * [JointBERT](http://vldb.org/pvldb/vol14/p1913-peeters.pdf)
 * [EMTransformer](https://digitalcollection.zhaw.ch/bitstream/11475/19637/1/Entity_Machting_with_Transformers_edbt_2020__Camera_Ready.pdf)
@@ -7,6 +6,8 @@ This Dockerfile runs the following matching algorithms:
 * [HierMatcher](https://www.ijcai.org/Proceedings/2020/0507.pdf)
 * [AutoML4EM](https://openproceedings.org/2021/conf/edbt/p260.pdf)
 * [GNEM](https://www.cs.sjtu.edu.cn/~shen-yy/TheWebCon_2021_paper_3002.pdf)
+* [Magellan](http://www.vldb.org/pvldb/vol9/p1197-pkonda.pdf)
+* [ZeroER](https://chu-data-lab.github.io/downloads/ZeroER-SIGMOD2020.pdf)
 
 To do so, build the Docker image with:
 
