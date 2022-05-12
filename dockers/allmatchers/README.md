@@ -7,7 +7,7 @@ This Dockerfile runs the following matching algorithms:
 * [HierMatcher](https://www.ijcai.org/Proceedings/2020/0507.pdf)
 * [AutoML4EM](https://openproceedings.org/2021/conf/edbt/p260.pdf)
 * [GNEM](https://www.cs.sjtu.edu.cn/~shen-yy/TheWebCon_2021_paper_3002.pdf)
-* 
+
 To do so, build the Docker image with:
 
 `sudo docker build -t allmatchers allmatchers`
