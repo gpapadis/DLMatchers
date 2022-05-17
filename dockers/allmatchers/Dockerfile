@@ -24,11 +24,11 @@ SHELL ["conda", "run", "-n", "p39", "/bin/bash", "-c"]
 RUN pip install pandas torch pytorch_transformers tensorboard sklearn
 
 WORKDIR /methods
-RUN git clone https://github.com/ChenRunjin/GNEM.git
+RUN git clone https://github.com/nishadi/GNEM.git
 
 # install ZeroER
 WORKDIR /methods
-RUN git clone https://github.com/chu-data-lab/zeroer.git
+RUN git clone https://github.com/nishadi/zeroer.git
 WORKDIR /methods/zeroer
 RUN conda env create -f environment.yml
 
@@ -50,13 +50,14 @@ RUN python -m nltk.downloader stopwords
 WORKDIR /methods
 RUN git clone https://github.com/wbsg-uni-mannheim/jointbert.git
 WORKDIR /methods/jointbert
+RUN mkdir /methods/jointbert/data/
 RUN conda env create -f jointbert.yml
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "jointbert", "/bin/bash", "-c"]
 
 # install HierMatcher
 WORKDIR /methods
-RUN git clone https://github.com/casnlu/EntityMatcher.git
+RUN git clone https://github.com/nishadi/EntityMatcher.git
 WORKDIR /methods/EntityMatcher
 RUN pip install -r requirements.txt
 WORKDIR /methods/EntityMatcher/embedding/
