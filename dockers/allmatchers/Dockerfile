@@ -46,6 +46,8 @@ RUN python -m spacy download en_core_web_lg
 RUN pip install tensorboardX nltk
 RUN python -m nltk.downloader stopwords
 
+RUN conda deactivate
+
 # install JointBERT + EMTransformer + DeepMatcher + Magellan
 WORKDIR /methods
 RUN git clone https://github.com/wbsg-uni-mannheim/jointbert.git
@@ -62,6 +64,13 @@ WORKDIR /methods/EntityMatcher
 RUN pip install -r requirements.txt
 WORKDIR /methods/EntityMatcher/embedding/
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
+
+RUN conda deactivate
+
+# install EMTransformer
+WORKDIR /methods
+RUN git clone https://github.com/gpapadis/EMtransformer.git
+RUN pip install pytorch_transformers scikit-learn tensorboardX pandas
 
 # install AutoML4EM
 #WORKDIR /methods
