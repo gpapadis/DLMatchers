@@ -38,7 +38,7 @@ SHELL ["conda", "run", "-n", "p377", "/bin/bash", "-c"]
 RUN conda install pytorch=1.8.0 cudatoolkit=11.1 nvidia-apex -c pytorch -c conda-forge -y
 
 WORKDIR /methods
-RUN git clone https://github.com/megagonlabs/ditto.git
+RUN git clone https://github.com/nishadi/ditto.git
 WORKDIR /methods/ditto
 RUN sed -i '8d' requirements.txt
 RUN pip install -r requirements.txt
