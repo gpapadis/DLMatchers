@@ -47,7 +47,7 @@ RUN python -m spacy download en_core_web_lg
 RUN pip install tensorboardX nltk
 RUN python -m nltk.downloader stopwords
 
-# install JointBERT + EMTransformer + DeepMatcher + Magellan
+# install JointBERT 
 WORKDIR /methods
 RUN git clone https://github.com/wbsg-uni-mannheim/jointbert.git
 WORKDIR /methods/jointbert
@@ -70,3 +70,16 @@ SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 WORKDIR /methods
 RUN git clone https://github.com/gpapadis/EMTransformer.git
 RUN pip install pytorch_transformers scikit-learn tensorboardX pandas
+
+# install DeepMatcher
+RUN conda create -n deepmatcher python=3.6 -y
+SHELL ["conda", "run", "-n", "deepmatcher", "/bin/bash", "-c"]
+RUN pip install deepmatcher
+RUN wget https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.en.zip --directory-prefix=/root/.vector_cache
+RUN apt-get update
+RUN apt-get install unzip
+RUN unzip /root/.vector_cache/wiki.en.zip -d /root/.vector_cache/
+RUN rm /root/.vector_cache/wiki.en.vec
+
+# install Magellan
+RUN pip install -U numpy scipy py_entitymatching
