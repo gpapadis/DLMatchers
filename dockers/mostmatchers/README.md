@@ -40,4 +40,4 @@ To run the rest of the algorithms, activate the corresponding conda environment 
 and follow the instructions in:
 * [Magellan's repository](https://github.com/anhaidgroup/py_entitymatching),
 * [DeepMatcher's repository](https://github.com/anhaidgroup/deepmatcher), and
-* [HierMatcher's repository](https://github.com/wbsg-uni-mannheim/jointbert](https://github.com/casnlu/EntityMatcher).
+* [HierMatcher's repository](https://github.com/casnlu/EntityMatcher).
