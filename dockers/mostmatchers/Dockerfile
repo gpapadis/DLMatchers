@@ -21,7 +21,8 @@ ENV LD_LIBRARY_PATH /usr/local/cuda-11.6/lib64:/usr/local/cuda-11.6/extras/CUPTI
 # install GNEM
 RUN conda create -n p39 python=3.9 -y
 SHELL ["conda", "run", "-n", "p39", "/bin/bash", "-c"]
-RUN pip install pandas torch pytorch_transformers tensorboard sklearn
+RUN conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+RUN pip install pandas pytorch_transformers tensorboard sklearn
 
 WORKDIR /methods
 RUN git clone https://github.com/nishadi/GNEM.git
@@ -38,7 +39,7 @@ SHELL ["conda", "run", "-n", "p377", "/bin/bash", "-c"]
 RUN conda install pytorch=1.8.0 cudatoolkit=11.1 nvidia-apex -c pytorch -c conda-forge -y
 
 WORKDIR /methods
-RUN git clone https://github.com/megagonlabs/ditto.git
+RUN git clone https://github.com/nishadi/ditto.git
 WORKDIR /methods/ditto
 RUN sed -i '8d' requirements.txt
 RUN pip install -r requirements.txt
