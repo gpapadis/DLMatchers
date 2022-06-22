@@ -87,3 +87,6 @@ WORKDIR /methods/EntityMatcher
 WORKDIR /methods/EntityMatcher/embedding/
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
 RUN conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+
+# directory needed for DITTO results
+WORKDIR /home/remote/u6852937/projects
