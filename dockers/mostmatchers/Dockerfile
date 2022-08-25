@@ -75,7 +75,6 @@ RUN pip install -U numpy scipy py_entitymatching
 # install HierMatcher
 WORKDIR /methods
 RUN git clone https://github.com/nishadi/EntityMatcher.git
-WORKDIR /methods/EntityMatcher
 WORKDIR /methods/EntityMatcher/embedding/
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
 RUN conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
