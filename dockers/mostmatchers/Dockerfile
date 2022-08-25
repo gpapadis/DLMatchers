@@ -65,6 +65,7 @@ RUN apt-get update
 RUN apt-get install unzip
 RUN unzip /root/.vector_cache/wiki.en.zip -d /root/.vector_cache/
 RUN rm /root/.vector_cache/wiki.en.vec
+RUN rm /root/.vector_cache/wiki.en.zip
 WORKDIR /methods
 RUN git clone https://github.com/nishadi/deepmatcher-sample.git
 
