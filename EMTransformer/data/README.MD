@@ -1,0 +1,2 @@
+#Data
+All the data in this directory is already in the expected schema and ready to use for the experiments. If you add further data, make sure you convert it to the right schema with the `convert_deepmatcher_files.py` script.
