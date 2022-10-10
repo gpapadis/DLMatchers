@@ -51,8 +51,8 @@ SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 
 # install EMTransformer
 WORKDIR /methods
-RUN git clone https://github.com/gpapadis/EMTransformer.git
-RUN pip install pytorch_transformers scikit-learn tensorboardX pandas
+RUN git clone https://github.com/gpapadis/DLMatchers.git
+RUN pip install pytorch_transformers scikit-learn tensorboardX pandas transformers
 
 # install DeepMatcher
 RUN conda create -n deepmatcher python=3.6 -y
