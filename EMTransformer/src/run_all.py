@@ -1,5 +1,8 @@
 import logging
 import os
+import resource
+import csv
+import fcntl
 from datetime import datetime
 import json
 
@@ -15,6 +18,7 @@ from training import train
 from prediction import predict
 import torch
 from time import time
+from sklearn.metrics import precision_score, recall_score, confusion_matrix
 
 setup_logging()
 
@@ -113,6 +117,7 @@ if __name__ == "__main__":
           model_type=args.model_type)
     t2 = time()
     training_time = t2-t1
+    train_max_mem = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
 
     #Testing
     test_examples = processor.get_test_examples(args.data_path)
@@ -133,6 +138,7 @@ if __name__ == "__main__":
     simple_accuracy, f1, classification_report, prfs, predictions = predict(model, device, test_data_loader, include_token_type_ids)
     t2 = time()
     testing_time = t2-t1
+    test_max_mem = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     logging.info("Prediction done for {} examples.F1: {}, Simple Accuracy: {}".format(len(test_data_loader), f1, simple_accuracy))
 
     logging.info(classification_report)
@@ -146,8 +152,52 @@ if __name__ == "__main__":
         scores = {'simple_accuracy': simple_accuracy, 'f1': f1, 'model_type': args.model_type,
          'data_dir': args.data_dir, 'training_time': training_time, 'testing_time': testing_time, 'prfs': prfs}
         fout.write(json.dumps(scores)+"\n")
-    
+
  
     '''     
     save_model(model, exp_name, args.model_output_dir, tokenizer=tokenizer)
-    '''          
+    '''
+
+    # Generate stats
+    predicted_class = predictions['predictions']
+    labels = predictions['labels']
+    p = precision_score(y_true=labels, y_pred=predicted_class)
+    r = recall_score(y_true=labels, y_pred=predicted_class)
+    f_star = 0 if (p + r - p * r) == 0 else p * r / (p + r - p * r)
+    tn, fp, fn, tp = confusion_matrix(y_true=labels,
+                                      y_pred=predicted_class).ravel()
+
+    # Persist Results
+    result_file = '/home/remote/u6852937/projects/results.csv'
+    file_exists = os.path.isfile(result_file)
+
+    with open(result_file, 'a') as results_file:
+      heading_list = ['method', 'dataset_name', 'train_time',
+                      'test_time',
+                      'train_max_mem', 'test_max_mem', 'TP', 'FP',
+                      'FN',
+                      'TN', 'Pre', 'Re', 'F1', 'Fstar']
+      writer = csv.DictWriter(results_file, fieldnames=heading_list)
+
+      if not file_exists:
+        writer.writeheader()
+
+      fcntl.flock(results_file, fcntl.LOCK_EX)
+      result_dict = {
+        'method': 'emtransformer-{}-epochs-{}'.format(args.model_type,args.num_epochs),
+        'dataset_name': args.data_dir,
+        'train_time': round(training_time, 2),
+        'test_time': round(testing_time, 2),
+        'train_max_mem': train_max_mem,
+        'test_max_mem': test_max_mem,
+        'TP': tp,
+        'FP': fp,
+        'FN': fn,
+        'TN': tn,
+        'Pre': round(p * 100, 2),
+        'Re': round(r * 100, 2),
+        'F1':  round(f1 * 100, 2),
+        'Fstar': round(f_star * 100, 2),
+      }
+      writer.writerow(result_dict)
+      fcntl.flock(results_file, fcntl.LOCK_UN)
