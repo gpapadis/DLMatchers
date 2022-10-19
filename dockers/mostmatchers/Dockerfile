@@ -52,6 +52,7 @@ SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 # install EMTransformer
 WORKDIR /methods
 RUN git clone https://github.com/gpapadis/DLMatchers.git
+RUN conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
 RUN pip install pytorch_transformers scikit-learn tensorboardX pandas transformers
 
 # install DeepMatcher
