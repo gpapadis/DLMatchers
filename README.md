@@ -1,13 +1,17 @@
 # DLMatchers
 Deep Learning-based Entity Matching
 
-To create a Docker container for each version of Python, use the following command:
+Datasets are available [here](https://zenodo.org/record/7252010).
 
-`sudo docker build -t py3Xmatchers py3Xmatchers`
+New baselines are available [here](https://github.com/gpapadis/thresholdBasedBaselines).
+
+To create a Docker container for the main DL-based matching algorithms run
+
+`sudo docker build -t mostmatchers mostmatchers`
 
 To log into the container, use the following command:
 
-`sudo docker run -it --entrypoint=/bin/bash py3Xmatchers`
+`sudo docker run -it --entrypoint=/bin/bash mostmatchers`
 
 To use the GPUs of the underlying infrastructure, [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian) should be installed and the flag
 
