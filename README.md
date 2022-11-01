@@ -19,6 +19,8 @@ To use the GPUs of the underlying infrastructure, [Nvidia Container Toolkit](htt
 
 should be added to the command that initiates the Docker container.
 
+More details are provided [here](https://github.com/gpapadis/DLMatchers/tree/main/dockers/mostmatchers).
+
 To clean up all disk space occupied by Docker (after many experimentations), use the following commands:
 * `sudo docker system prune -a`
 * `sudo docker volume prune`
