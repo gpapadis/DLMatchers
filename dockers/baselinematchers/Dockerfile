@@ -39,4 +39,5 @@ WORKDIR /vectors
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
 
 # st-5 baseline
-RUN pip install torch sentence_transformers, 
+RUN conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
+RUN pip install pytorch_transformers scikit-learn tensorboardX pandas transformers
