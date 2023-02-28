@@ -34,6 +34,9 @@ RUN pip install pandas nltk
 RUN python -m nltk.downloader stopwords
 
 # fasttext baseline
-RUN pip install gensim scipy
+RUN pip install gensim scipy numpy
 WORKDIR /vectors
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
+
+# st-5 baseline
+RUN pip install torch sentence_transformers, 
