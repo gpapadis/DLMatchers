@@ -34,6 +34,6 @@ RUN pip install pandas nltk
 RUN python -m nltk.downloader stopwords
 
 # fasttext baseline
-WORKDIR /vectors
 RUN pip install gensim scipy
+WORKDIR /vectors
 RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
