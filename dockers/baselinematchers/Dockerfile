@@ -40,4 +40,4 @@ RUN wget https://zenodo.org/record/6466387/files/wiki.en.bin
 
 # st-5 baseline
 RUN conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
-RUN pip install pytorch_transformers scikit-learn tensorboardX pandas transformers
+RUN pip install pytorch_transformers scikit-learn tensorboardX pandas transformers sentence_transformers
