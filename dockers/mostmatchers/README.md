@@ -24,7 +24,7 @@ should be added to the command that initiates the Docker container.
 To clean up all disk space occupied by Docker (after many experimentations), use the following commands:
 * `sudo docker system prune -a`
 * `sudo docker volume prune`
-* 
+
 To run **ZeroER**, activate the corresponding conda environment with:
 
 `conda activate ZeroER`
