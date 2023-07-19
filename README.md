@@ -1,9 +1,11 @@
 # DLMatchers
-Deep Learning-based Entity Matching
+This repository contains pointers to all code and data used in our publication on [A Critical Re-evaluation of Benchmark Datasets for (Deep) Learning-Based Matching Algorithms](https://arxiv.org/abs/2307.01231).
 
-Datasets are available [here](https://zenodo.org/record/7252010).
+All datasets are available [here](https://zenodo.org/record/8164151).
 
-New baselines are available [here](https://github.com/gpapadis/thresholdBasedBaselines).
+The code that was used for generating the new benchmark datasets is available [here](https://github.com/gpapadis/DLMatchers/tree/main/DeepBlocker4NewDatasets). The input data to these scripts can be found [here](https://zenodo.org/record/7460624).
+
+The implementation of the non-neural, linear supervised matching algorithms is available [here](https://github.com/gpapadis/thresholdBasedBaselines).
 
 To create a Docker container for the main DL-based matching algorithms run
 
