@@ -11,6 +11,12 @@ To test the **DeepMatcher** docker, use the following commands:
 * cd deepmatcher-sample
 * python run.py /workspace/deepmatcher/examples/sample_data sample
 
+To test the **DeepMatcher** docker, use the following commands:
+
+* eval "$(conda shell.bash hook)"
+* conda activate deepmatcher
+* python run.py -m "HierMatcher" -d "data/amazon_google/" -e "embedding"
+
 To test the **EMTransformer** docker, use the following commands:
 
 * docker run -it --gpus all --entrypoint=/bin/bash emtransformer
