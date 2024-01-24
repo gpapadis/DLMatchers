@@ -14,6 +14,7 @@ To test the **DeepMatcher** docker, use the following commands:
 To test the **DeepMatcher** docker, use the following commands:
 
 * eval "$(conda shell.bash hook)"
+* cd ..
 * conda activate deepmatcher
 * python run.py -m "HierMatcher" -d "data/amazon_google/" -e "embedding"
 
