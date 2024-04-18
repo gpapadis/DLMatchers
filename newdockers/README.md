@@ -11,7 +11,7 @@ To test the **DeepMatcher** docker, use the following commands:
 * cd deepmatcher-sample
 * python run.py /workspace/deepmatcher/examples/sample_data sample
 
-To test the **DeepMatcher** docker, use the following commands:
+To test the **HierMatcher** docker, use the following commands:
 
 * cd ..
 * eval "$(conda shell.bash hook)"
